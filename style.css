@@ -1,0 +1,360 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap');
+
+/* Paleta de cores */
+:root {
+  --bg-dark: #121212;
+  --bg-light: #f5f5f5;
+  --text-dark: #e0e0e0;
+  --text-light: #1e1e1e;
+  --primary: #2979ff;
+  --secondary: #ff6f00;
+  --accent: #03dac6;
+  --card-bg: #1e1e1e;
+  --card-bg-light: #fff;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* Header fixo */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--card-bg);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  color: var(--primary);
+  font-size: 1.8rem;
+}
+.logo::before{
+  content: "</>";
+  font-weight: bolder;
+  margin-right: 0.5rem;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--secondary);
+}
+
+#toggleTheme {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#toggleTheme:hover {
+  color: var(--secondary);
+}
+
+/* === BANNER COM MOLDURA === */
+.banner {
+  margin-top: 80px;
+  padding: 1rem;
+  border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 30px rgba(2, 89, 238, 0.993);
+  position: relative;
+  bottom: 50px;
+}
+main {
+  background: linear-gradient(135deg, #121212cc, #1a1a1acc); /* fundo escuro com leve transparência */
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 90px auto 3rem; /* top ajustado pra header fixo */
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(41, 121, 255, 0.3);
+  color: var(--text-dark);
+}
+
+/* === CAROUSEL === */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  max-height: 600px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  width: 100%;
+}
+
+.slide {
+  flex: 1 0 100%;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.banner-text {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+}
+
+.banner-text h2 {
+  font-size: 3rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.banner-text p {
+  font-size: 1.4rem;
+}
+
+/* Botões do carrossel */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.carousel-btn.prev {
+  left: 1rem;
+}
+
+.carousel-btn.next {
+  right: 1rem;
+}
+
+/* === SECTIONS === */
+.section {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.section h3 {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--primary);
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0);
+  padding-bottom: 0.5rem;
+  text-align: left;
+  background: rgba(37, 2, 238, 0.651);
+  
+}
+
+h3::before{
+  content: "💻";
+  margin-right: 3px;
+}
+/* === CARDS === */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 280px;
+  top: 35px;
+  box-shadow: 0 10px 15px rgb(1, 189, 223);
+  color: var(--text-dark);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: linear-gradient(135deg, #1e1e1e, #2b2b2b);
+  border: 2px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(41, 121, 255, 0.4);
+}
+
+.card h4 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.btn-outline {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  border: 2px solid var(--primary);
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* === SKILLS === */
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.skill-list li {
+  background-color: var(--card-bg);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+body.light .skill-list li {
+  background-color: var(--card-bg-light);
+  color: var(--text-light);
+}
+
+/* === FOOTER === */
+footer {
+  background-color: var(--card-bg);
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--primary);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  margin-top: 4rem;
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .banner-text h2 {
+    font-size: 2rem;
+  }
+
+  .banner-text p {
+    font-size: 1rem;
+  }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+      45deg,
+      rgba(5, 216, 23, 0.959),
+      rgba(0, 92, 250, 0.938) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(4, 248, 16, 0.945),
+      rgba(55, 1, 247, 0.02) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+  z-index: -1;
+  animation: moveBG 40s linear infinite;
+}
+
+@keyframes moveBG {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1000px 1000px;
+  }
+}
+
